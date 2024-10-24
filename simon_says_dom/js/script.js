@@ -2,6 +2,7 @@ const deleteNumsTimeout = 5_000;
 
 let numsArr = [];
 let userNumsArr = [];
+let resetTimeout;
 
 const numbersList = document.getElementById("numbers-list");
 const displayNums = () =>
@@ -37,6 +38,7 @@ const msg = document.getElementById("message");
 const resetGame = () => {
   numsArr = [];
   userNumsArr = [];
+  resetTimeout = null;
 
   answersForm.reset();
 
@@ -57,8 +59,6 @@ function displayMsg(guessedNums) {
     ? `Hai indovinato i seguenti numeri: ${guessedNums.join(", ")}`
     : "Non hai indovinato nessun numero";
 }
-
-let resetTimeout;
 
 function handleSubmit(e) {
   e.preventDefault();
